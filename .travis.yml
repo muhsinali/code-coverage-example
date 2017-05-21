@@ -1,0 +1,13 @@
+sudo: required
+language: scala
+scala:
+- 2.11.11
+jdk:
+- oraclejdk8
+services:
+- mongodb
+before_script:
+- sleep 15
+after_success:
+  - coveralls
+  - bash <(curl -s https://codecov.io/bash)
